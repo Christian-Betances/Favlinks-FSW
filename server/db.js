@@ -58,7 +58,7 @@ const deleteLink = (re1, res) => {
     const name = req.body.name
     const URL = req.body.URL
 
-    pool.query('DELETE FROM favlinks WHERE name = $1',
+    pool.query('DELETE FROM favlinks WHERE id = $1',
     [id],
     (error, result) => {
         if(error){
