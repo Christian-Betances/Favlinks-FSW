@@ -5,7 +5,7 @@ const path = require('path')
 
 const app = express();
 
-const db = require('./queries.js')
+const db = require('./db.js')
 
 const PORT = 3000
 
@@ -18,6 +18,9 @@ app.get('/', (req, res) => {
     })
 
 app.get('/api/links', db.getLinks)
+app.post('/api/links', db.createLink)
+app.post('/api/links/:id', db.updateLink)
+app.post('/api/links/:id', db.deleteLink)
 
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`)
